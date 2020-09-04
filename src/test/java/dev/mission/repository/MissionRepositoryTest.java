@@ -31,7 +31,7 @@ class MissionRepositoryTest {
 		mission.setDateDebut(LocalDate.now());
 		mission.setDateFin(LocalDate.of(2021, 3, 4));
 
-		this.missionRepository.save(mission);
+		entityManager.persist(mission);
 
 	}
 
