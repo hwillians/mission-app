@@ -28,7 +28,7 @@ public class ListerProchainesMissions implements Runnable {
 	@Override
 	public void run() {
 
-		List<Mission> list = missionRepository.missionToday(LocalDate.now());
+		List<Mission> list = missionRepository.findByDateDebutGreaterThanEqual(LocalDate.now());
 
 		System.out.println("Les missions qui débutent à partir d'aujourd’hui Sont : ");
 		for (Mission m : list) {

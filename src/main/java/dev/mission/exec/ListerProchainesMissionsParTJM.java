@@ -26,7 +26,8 @@ public class ListerProchainesMissionsParTJM implements Runnable {
 	@Override
 	public void run() {
 		BigDecimal taux = new BigDecimal(102.00);
-		List<Mission> list = missionRepository.missionTaux(LocalDate.now(), taux);
+		List<Mission> list = missionRepository
+				.findByDateDebutGreaterThanEqualAndTauxJournalierGreaterThanEqual(LocalDate.now(), taux);
 
 		System.out.println(
 				"Les missions qui débutent à partir d'aujourd’hui  avec un taux superieur à : " + taux + " Sont : ");
